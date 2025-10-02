@@ -4,7 +4,7 @@ import { View, Text, FlatList, StyleSheet } from 'react-native';
 const ListaProductos = ({ productos }) => {
     return (
         <View style={styles.container}>
-            <Text style={styles.titulo}>Lista de Productos</Text>
+            <Text style={styles.titulo}>Lista de los Productos</Text>
             <FlatList
                 data={productos}
                 keyExtractor={(item) => item.id}
