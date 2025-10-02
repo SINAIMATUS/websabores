@@ -2,6 +2,17 @@ import React, { useEffect, useState } from "react";
 import { View, Text, FlatList, StyleSheet } from "react-native";
 import { db } from "./src/database/firebaseconfig";
 import { collection, getDocs } from "firebase/firestore";
+import React from "react";
+import Productos from ".src/views/Productos"; 
+
+export default function App() {
+
+  return (
+  <>
+  <productos />
+  </>
+  );
+}
 
 export default function App() {
   const [productos, setProductos] = useState([]);
