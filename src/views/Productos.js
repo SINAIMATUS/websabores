@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { View, StyleSheet } from 'react-native';
-import { db } from '../database/firebaseconfig';
+import { db } from '../database/firebaseconfig.js';
 import { collection, getDocs } from 'firebase/firestore';
-import FormularioProductos from '../components/FormularioProductos';
-import ListaProductos from '../components/ListaProductos';
+import FormularioProductos from '../components/FormularioProductos.js';
+import ListaProductos from '../components/ListaProductos.js';
+import TablaProductos from '../components/TablaProductos.js';
 
 const Productos = () => {
   const [productos, setProductos] = useState([]);
@@ -29,6 +30,7 @@ const Productos = () => {
     <View style={styles.container}>
       <FormularioProductos cargarDatos={cargarDatos} />
       <ListaProductos productos={productos} />
+      <TablaProductos productos={productos} cargarDatos={cargarDatos} />
     </View>
   );
 };

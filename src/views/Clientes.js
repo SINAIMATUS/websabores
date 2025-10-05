@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { View, StyleSheet } from 'react-native';
 import { db } from '../database/firebaseconfig';
 import { collection, getDocs } from 'firebase/firestore';
-import FormularioClientes from '../components/FormularioClientes';
-import ListaClientes from '../components/ListaClientes';
+import FormularioClientes from '../components/FormularioClientes.js';
+import ListaClientes from '../components/ListaClientes.js';
 
 const Clientes = () => {
   const [clientes, setClientes] = useState([]);
