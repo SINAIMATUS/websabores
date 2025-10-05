@@ -5,6 +5,7 @@ import { collection, getDocs } from 'firebase/firestore';
 import FormularioProductos from '../components/FormularioProductos.js';
 import ListaProductos from '../components/ListaProductos.js';
 import TablaProductos from '../components/TablaProductos.js';
+import { collection, getDocs, doc, deleteDoc } from "firebase/firestore";
 
 const Productos = () => {
   const [productos, setProductos] = useState([]);
@@ -26,11 +27,25 @@ const Productos = () => {
     cargarDatos();
   }, []);
 
+  const eliminarProducto = async (id) => {
+    try {
+      await deleteDoc(doc(db, "productos", id));
+      cargarDatos(); // recargar lista
+    } catch (error) {
+      console.error("Error al eliminar:", error);
+    }
+  };
+
+
   return (
     <View style={styles.container}>
       <FormularioProductos cargarDatos={cargarDatos} />
       <ListaProductos productos={productos} />
       <TablaProductos productos={productos} cargarDatos={cargarDatos} />
+      <TablaProductos
+        productos={productos}
+        eliminarProducto={eliminarProducto}
+      />
     </View>
   );
 };

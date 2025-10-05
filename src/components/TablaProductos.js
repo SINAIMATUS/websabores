@@ -1,8 +1,8 @@
 import React from 'react';
 import { View, Text, ScrollView } from 'react-native';
-import { BotonEliminarProducto } from './BotonEliminarProducto.js';
+import BotonEliminarProducto from './BotonEliminarProducto.js';
 
-const TablaProductos = ({ productos }) => {
+const TablaProductos = ({ productos, eliminarProducto }) => {
   return (
     <View style={styles.container}>
       <Text style={styles.titulo}>Tabla de Productos</Text>
@@ -18,6 +18,9 @@ const TablaProductos = ({ productos }) => {
           <View key={item.id} style={styles.fila}>
             <Text style={styles.celda}>{item.nombre}</Text>
             <Text style={styles.celda}>{item.precio}</Text>
+             <View style={[styles.celdaAcciones]}>
+              <BotonEliminarProducto id={item.id} eliminarProducto={eliminarProducto} />
+            </View>
             <View style={styles.celda}>
               <BotonEliminarProducto />
             </View>

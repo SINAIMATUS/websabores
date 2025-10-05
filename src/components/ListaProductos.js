@@ -12,6 +12,7 @@ const ListaProductos = ({ productos }) => {
                     <text style={styles.item}>
                         {item.nombre} - ${item.precio}
                         </text>
+                        
                 )}
                 />
         </View>
