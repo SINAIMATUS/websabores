@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, ScrollView } from 'react-native';
+import { View, Text, ScrollView, StyleSheet } from 'react-native';
 import BotonEliminarProducto from './BotonEliminarProducto.js';
 
 const TablaProductos = ({ productos, eliminarProducto }) => {
@@ -18,11 +18,8 @@ const TablaProductos = ({ productos, eliminarProducto }) => {
           <View key={item.id} style={styles.fila}>
             <Text style={styles.celda}>{item.nombre}</Text>
             <Text style={styles.celda}>{item.precio}</Text>
-             <View style={[styles.celdaAcciones]}>
+            <View style={styles.celdaAcciones}>
               <BotonEliminarProducto id={item.id} eliminarProducto={eliminarProducto} />
-            </View>
-            <View style={styles.celda}>
-              <BotonEliminarProducto />
             </View>
           </View>
         ))}
@@ -35,40 +32,40 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 20,
-    alignSelf: "stretch"
+    alignSelf: 'stretch',
   },
   titulo: {
     fontSize: 22,
-    fontWeight: "bold",
-    marginBottom: 10
+    fontWeight: 'bold',
+    marginBottom: 10,
   },
   fila: {
-    flexDirection: "row",
+    flexDirection: 'row',
     borderBottomWidth: 1,
-    borderColor: "#ccc",
+    borderColor: '#ccc',
     paddingVertical: 6,
-    alignItems: "center"
+    alignItems: 'center',
   },
   encabezado: {
-    backgroundColor: "#f0f0f0",
+    backgroundColor: '#f0f0f0',
   },
   celda: {
     flex: 1,
     fontSize: 16,
-    textAlign: "center"
+    textAlign: 'center',
   },
   celdaAcciones: {
     flex: 1,
-    flexDirection: "row",
-    justifyContent: "center",
-    alignItems: "center",
-    gap: 8
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    gap: 8,
   },
   textoEncabezado: {
-    fontWeight: "bold",
+    fontWeight: 'bold',
     fontSize: 17,
-    textAlign: "center"
-  }
+    textAlign: 'center',
+  },
 });
 
 export default TablaProductos;

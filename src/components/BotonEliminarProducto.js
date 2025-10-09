@@ -32,6 +32,7 @@ const BotonEliminarProducto = ({ id, eliminarProducto }) => {
             <Text style={styles.titulo}>¿Desea eliminar este producto?</Text>
             <View style={styles.fila}>
               <TouchableOpacity
+                style={styles.botonAccion}
                 onPress={() => {
                   setConfirmarEliminar(false);
                   setVisible(false);
@@ -40,6 +41,7 @@ const BotonEliminarProducto = ({ id, eliminarProducto }) => {
                 <Text style={styles.textoAccionCancelar}>Cancelar</Text>
               </TouchableOpacity>
               <TouchableOpacity
+                style={styles.botonAccion}
                 onPress={() => {
                   setConfirmarEliminar(true);
                   eliminarProductoId();
@@ -59,50 +61,53 @@ const styles = StyleSheet.create({
   boton: {
     padding: 4,
     borderRadius: 5,
-    alignItems: "center",
-    justifyContent: "center",
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   textoBoton: {
-    color: "#FF3737FF",
+    color: '#FF3737FF',
     fontSize: 14,
-    overlay: {
-      flex: 1,
-      justifyContent: "center",
-      alignItems: "center",
-      backgroundColor: "rgba(0,0,0,0.5)",
-    },
-    modal: {
-      backgroundColor: "white",
-      borderRadius: 10,
-      width: "80%",
-      alignItems: "center",
-    },
-    titulo: {
-      fontSize: 18,
-      marginBottom: 20,
-    },
-    fila: {
-      flexDirection: "row",
-      justifyContent: "space-between",
-      width: "100%",
-    },
-    botonAccion: {
-      flex: 1,
-      marginHorizontal: 5,
-      borderRadius: 5,
-      alignItems: "center",
-    },
-    cancelar: {
-      backgroundColor: "#ccc",
-      confirm: {
-        backgroundColor: "#ff4040",
-        textoAccion: {
-          color: "white",
-          fontWeight: "bold",
-        },
-      },
-    },
-  }
+  },
+  overlay: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'rgba(0,0,0,0.5)',
+  },
+  modal: {
+    backgroundColor: 'white',
+    borderRadius: 10,
+    width: '80%',
+    alignItems: 'center',
+    padding: 20,
+  },
+  titulo: {
+    fontSize: 18,
+    marginBottom: 20,
+  },
+  fila: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    width: '100%',
+  },
+  botonAccion: {
+    flex: 1,
+    marginHorizontal: 5,
+    padding: 10,
+    borderRadius: 5,
+    alignItems: 'center',
+  },
+  textoAccionCancelar: {
+    color: '#000',
+    fontWeight: 'bold',
+  },
+  textoAccionEliminar: {
+    color: 'white',
+    fontWeight: 'bold',
+    backgroundColor: '#ff4040',
+    padding: 5,
+    borderRadius: 5,
+  },
 });
 
 export default BotonEliminarProducto;

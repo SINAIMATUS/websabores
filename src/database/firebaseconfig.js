@@ -1,10 +1,10 @@
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 import { initializeAuth, getReactNativePersistence } from 'firebase/auth';
+import ReactNativeAsyncStorage from '@react-native-async-storage/async-storage';
 import Constants from "expo-constants";
 import "react-native-get-random-values";
-import "react native-url-polyfill/auto";
-import ReactNativeAsyncStorage from '@react-native-async-storage/async-storage';
+import "react-native-url-polyfill/auto";
 
 const { extra } = Constants.expoConfig;
 

@@ -2,27 +2,53 @@ import React from 'react';
 import { View, Text, FlatList, StyleSheet } from 'react-native';
 
 const ListaProductos = ({ productos }) => {
-    return (
-        <View style={styles.container}>
-            <Text style={styles.titulo}>Lista de los Productos</Text>
-            <FlatList
-                data={productos}
-                keyExtractor={(item) => item.id}
-                renderItem={({ item }) => (
-                    <text style={styles.item}>
-                        {item.nombre} - ${item.precio}
-                        </text>
-                        
-                )}
-                />
-        </View>
-    );
-          };
+  const renderItem = ({ item }) => (
+    <View style={styles.item}>
+      <Text style={styles.nombre}>{item.nombre}</Text>
+      <Text style={styles.precio}>${item.precio}</Text>
+    </View>
+  );
 
-          const styles = StyleSheet.create({
-            container: {flex: 1, justifyContent: "center"},
-            titulo: { fontSize: 24, fontWeight: 'bold', marginBottom: 10},
-            item: { fontSize: 18, marginBottom: 5 },
-          });
+  return (
+    <View style={styles.container}>
+      <Text style={styles.titulo}>Lista de Productos</Text>
+      <FlatList
+        data={productos}
+        renderItem={renderItem}
+        keyExtractor={item => item.id}
+        style={styles.list}
+      />
+    </View>
+  );
+};
 
-          export default ListaProductos;
+const styles = StyleSheet.create({
+  container: {
+    padding: 20,
+    marginBottom: 20,
+  },
+  titulo: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    marginBottom: 10,
+  },
+  list: {
+    flex: 1,
+  },
+  item: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    padding: 10,
+    borderBottomWidth: 1,
+    borderBottomColor: '#ccc',
+  },
+  nombre: {
+    fontSize: 16,
+  },
+  precio: {
+    fontSize: 16,
+    color: '#555',
+  },
+});
+
+export default ListaProductos;

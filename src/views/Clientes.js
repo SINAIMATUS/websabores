@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, StyleSheet } from 'react';
 import { View, StyleSheet } from 'react-native';
 import { db } from '../database/firebaseconfig';
 import { collection, getDocs } from 'firebase/firestore';

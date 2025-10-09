@@ -1,18 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import { View, StyleSheet } from 'react-native';
 import { db } from '../database/firebaseconfig.js';
-import { collection, getDocs } from 'firebase/firestore';
 import FormularioProductos from '../components/FormularioProductos.js';
 import ListaProductos from '../components/ListaProductos.js';
 import TablaProductos from '../components/TablaProductos.js';
-import { collection, getDocs, doc, deleteDoc } from "firebase/firestore";
+import { collection, getDocs, doc, deleteDoc } from 'firebase/firestore';
 
 const Productos = () => {
   const [productos, setProductos] = useState([]);
 
   const cargarDatos = async () => {
     try {
-      const querySnapshot = await getDocs(collection(db, "productos"));
+      const querySnapshot = await getDocs(collection(db, "Productos"));
       const data = querySnapshot.docs.map(doc => ({
         id: doc.id,
         ...doc.data(),
@@ -29,19 +28,17 @@ const Productos = () => {
 
   const eliminarProducto = async (id) => {
     try {
-      await deleteDoc(doc(db, "productos", id));
-      cargarDatos(); // recargar lista
+      await deleteDoc(doc(db, "Productos", id));
+      cargarDatos(); // Recargar lista
     } catch (error) {
       console.error("Error al eliminar:", error);
     }
   };
 
-
   return (
     <View style={styles.container}>
       <FormularioProductos cargarDatos={cargarDatos} />
       <ListaProductos productos={productos} />
-      <TablaProductos productos={productos} cargarDatos={cargarDatos} />
       <TablaProductos
         productos={productos}
         eliminarProducto={eliminarProducto}

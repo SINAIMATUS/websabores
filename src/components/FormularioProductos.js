@@ -6,15 +6,18 @@ import { collection, addDoc } from 'firebase/firestore';
 const FormularioProductos = ({ cargarDatos }) => {
   const [nombre, setNombre] = useState('');
   const [precio, setPrecio] = useState('');
+  const [descripcion, setDescripcion] = useState('');
 
   const guardarProducto = async () => {
     try {
-      await addDoc(collection(db, "productos"), {
+      await addDoc(collection(db, "Productos"), {
         nombre: nombre,
         precio: parseFloat(precio),
+        descripcion: descripcion,
       });
       setNombre('');
       setPrecio('');
+      setDescripcion('');
       alert('Producto agregado con éxito');
       cargarDatos();
     } catch (error) {
@@ -37,6 +40,12 @@ const FormularioProductos = ({ cargarDatos }) => {
         onChangeText={setPrecio}
         keyboardType="numeric"
       />
+      <TextInput
+        style={styles.input}
+        placeholder="Descripción"
+        value={descripcion}
+        onChangeText={setDescripcion}
+      />
       <Button title="Guardar" onPress={guardarProducto} />
     </View>
   );
@@ -51,6 +60,7 @@ const styles = StyleSheet.create({
     borderColor: '#ccc',
     padding: 10,
     marginBottom: 10,
+    borderRadius: 5,
   },
 });
 
