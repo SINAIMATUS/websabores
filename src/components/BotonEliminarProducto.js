@@ -18,7 +18,7 @@ const BotonEliminarProducto = ({ id, eliminarProducto }) => {
         style={styles.boton}
         onPress={() => setVisible(true)}
       >
-        <Text style={styles.textoBoton}>X</Text>
+        <Text style={styles.textoBoton}>🗑️</Text>
       </TouchableOpacity>
 
       <Modal

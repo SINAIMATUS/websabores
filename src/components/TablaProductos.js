@@ -6,17 +6,17 @@ const TablaProductos = ({ productos, eliminarProducto }) => {
   return (
     <View style={styles.container}>
       <Text style={styles.titulo}>Tabla de Productos</Text>
-      {/* Encabezado de la tabla */}
       <View style={[styles.fila, styles.encabezado]}>
         <Text style={[styles.celda, styles.textoEncabezado]}>Nombre</Text>
+        <Text style={[styles.celda, styles.textoEncabezado]}>Descripción</Text>
         <Text style={[styles.celda, styles.textoEncabezado]}>Precio</Text>
         <Text style={[styles.celda, styles.textoEncabezado]}>Acciones</Text>
       </View>
-      {/* Contenido de la tabla */}
       <ScrollView>
         {productos.map((item) => (
           <View key={item.id} style={styles.fila}>
             <Text style={styles.celda}>{item.nombre}</Text>
+            <Text style={styles.celda}>{item.descripcion}</Text>
             <Text style={styles.celda}>{item.precio}</Text>
             <View style={styles.celdaAcciones}>
               <BotonEliminarProducto id={item.id} eliminarProducto={eliminarProducto} />
@@ -38,6 +38,7 @@ const styles = StyleSheet.create({
     fontSize: 22,
     fontWeight: 'bold',
     marginBottom: 10,
+    textAlign: 'center',
   },
   fila: {
     flexDirection: 'row',
@@ -63,7 +64,7 @@ const styles = StyleSheet.create({
   },
   textoEncabezado: {
     fontWeight: 'bold',
-    fontSize: 17,
+    fontSize: 10,
     textAlign: 'center',
   },
 });
