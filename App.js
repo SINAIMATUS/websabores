@@ -1,6 +1,6 @@
 import React from "react";
-import Clientes from "./src/views/Clientes";
+import Productos from "./src/views/Productos";
 
 export default function App() {
-  return <Clientes/>;
+  return <Productos/>;
 }

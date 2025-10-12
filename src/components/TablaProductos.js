@@ -43,12 +43,12 @@ const styles = StyleSheet.create({
   fila: {
     flexDirection: 'row',
     borderBottomWidth: 2,
-    borderColor: '#bb0368ff',
+    borderColor: '#bb036832',
     paddingVertical: 8,
     alignItems: 'center',
   },
   encabezado: {
-    backgroundColor: '#d55aa6ff',
+    backgroundColor: '#bb036832',
   },
   celda: {
     flex: 1,

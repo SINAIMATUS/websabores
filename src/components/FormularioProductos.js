@@ -11,9 +11,9 @@ const FormularioProductos = ({ cargarDatos }) => {
   const guardarProducto = async () => {
     try {
       await addDoc(collection(db, "Productos"), {
-        nombre: nombre,
-        precio: parseFloat(precio),
-        descripcion: descripcion,
+        Nombre: nombre,
+        Precio: parseFloat(precio),
+        Descripcion: descripcion,
       });
       setNombre('');
       setPrecio('');
