@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, Modal, StyleSheet } from 'react-native';
 
-const BotonEliminarProducto = ({ id, eliminarCliente }) => {
+const BotonEliminarCliente = ({ id, eliminarCliente }) => {
   const [visible, setVisible] = useState(false);
   const [confirmarEliminar, setConfirmarEliminar] = useState(false);
 
@@ -110,4 +110,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default BotonEliminarProducto;
+export default BotonEliminarCliente;
