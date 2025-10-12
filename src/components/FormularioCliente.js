@@ -5,10 +5,10 @@ import { collection, addDoc } from 'firebase/firestore';
 
 const FormularioClientes = ({ cargarDatos }) => {
     const [nombre, setNombre] = useState('');
-    const [precio, setApellido] = useState('');
-    const [Cedula, setCedula] = useState('');
-    const [Telefono, setTelefono] = useState('');
-    const [Edad, setEdad] = useState('');
+    const [apellido, setApellido] = useState('');
+    const [cedula, setCedula] = useState('');
+    const [telefono, setTelefono] = useState('');
+    const [edad, setEdad] = useState('');
 
 
     const guardarCliente = async () => {

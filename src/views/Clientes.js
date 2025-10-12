@@ -1,15 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { View, StyleSheet } from 'react-native';
 import { db } from '../database/firebaseconfig.js';
-import FormularioProductos from '../components/FormularioCliente.js';
-import ListaProductos from '../components/ListaClientes.js';
-import TablaProductos from '../components/TablaClientes.js';
-import { collection, getDocs, doc, deleteDoc } from 'firebase/firestore';
-import FormularioClientes from '../components/FormularioCliente.js';
+import FormularioClientes from '../components/FormularioClientes.js';
 import ListaClientes from '../components/ListaClientes.js';
 import TablaClientes from '../components/TablaClientes.js';
+import { collection, getDocs, doc, deleteDoc } from 'firebase/firestore';
 
-const clientes = () => {
+const Clientes = () => {
   const [clientes, setClientes] = useState([]);
 
   const cargarDatos = async () => {
@@ -29,7 +26,7 @@ const clientes = () => {
     cargarDatos();
   }, []);
 
-  const eliminarCliente = async (id) => {
+  const eliminarCliente= async (id) => {
     try {
       await deleteDoc(doc(db, "Clientes", id));
       cargarDatos(); // Recargar lista
@@ -43,7 +40,7 @@ const clientes = () => {
       <FormularioClientes cargarDatos={cargarDatos} />
       <ListaClientes clientes={clientes} />
       <TablaClientes
-        clientes={clientes}
+        Clientes={Clientes}
         eliminarCliente={eliminarCliente}
       />
     </View>
@@ -57,4 +54,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Productos;
+export default Clientes;
