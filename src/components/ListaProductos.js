@@ -30,12 +30,12 @@ const ListaProductos = ({ productos }) => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        padding: 20,
+        padding: 15,
     },
     titulo: {
-        fontSize: 22,
+        fontSize: 16,
         fontWeight: 'bold',
-        marginBottom: 10,
+        marginBottom: 8,
         textAlign: 'center',
     },
     list: {
@@ -44,7 +44,7 @@ const styles = StyleSheet.create({
     item: {
         paddingVertical: 10,
         borderBottomWidth: 1,
-        borderBottomColor: '#ccc',
+        borderBottomColor: '#c70b92ff',
     },
     nombre: {
         fontSize: 18,
@@ -52,12 +52,12 @@ const styles = StyleSheet.create({
     },
     descripcion: {
         fontSize: 16,
-        color: '#555',
+        color: '#580d0dff',
         marginVertical: 2,
     },
     precio: {
         fontSize: 16,
-        color: '#000',
+        color: '#291212ff',
     },
 });
 

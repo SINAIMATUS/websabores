@@ -31,28 +31,28 @@ const TablaProductos = ({ productos, eliminarProducto }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 20,
+    padding: 10,
     alignSelf: 'stretch',
   },
   titulo: {
-    fontSize: 22,
+    fontSize: 15,
     fontWeight: 'bold',
-    marginBottom: 10,
+    marginBottom: 7,
     textAlign: 'center',
   },
   fila: {
     flexDirection: 'row',
-    borderBottomWidth: 1,
-    borderColor: '#ccc',
-    paddingVertical: 6,
+    borderBottomWidth: 2,
+    borderColor: '#bb0368ff',
+    paddingVertical: 8,
     alignItems: 'center',
   },
   encabezado: {
-    backgroundColor: '#f0f0f0',
+    backgroundColor: '#d55aa6ff',
   },
   celda: {
     flex: 1,
-    fontSize: 16,
+    fontSize: 9,
     textAlign: 'center',
   },
   celdaAcciones: {
@@ -64,7 +64,7 @@ const styles = StyleSheet.create({
   },
   textoEncabezado: {
     fontWeight: 'bold',
-    fontSize: 10,
+    fontSize: 8,
     textAlign: 'center',
   },
 });

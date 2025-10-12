@@ -14,11 +14,11 @@ const FormularioClientes = ({ cargarDatos }) => {
     const guardarCliente = async () => {
         try {
             await addDoc(collection(db, "Clientes"), {
-                nombre: nombre,
-                apellido: apellido,
-                cedula: cedula,
-                telefono: telefono,
-                edad: edad
+                Nombre: nombre,
+                Apellido: apellido,
+                Cedula: cedula,
+                Telefono: telefono,
+                Edad: edad
             });
             setNombre('');
             setApellido('');
@@ -73,13 +73,13 @@ const FormularioClientes = ({ cargarDatos }) => {
 
 const styles = StyleSheet.create({
     container: {
-        padding: 20,
+        padding: 10,
     },
     input: {
         borderWidth: 1,
-        borderColor: '#ccc',
-        padding: 10,
-        marginBottom: 10,
+        borderColor: '#0208b6ff',
+        padding: 7,
+        marginBottom: 8,
         borderRadius: 5,
     },
 });

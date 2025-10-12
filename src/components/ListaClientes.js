@@ -3,64 +3,91 @@ import { View, Text, FlatList, StyleSheet } from 'react-native';
 
 const ListaClientes = ({ clientes }) => {
     const renderItem = ({ item }) => (
-        <View style={styles.item}>
-            <Text style={styles.nombre}>{item.nombre}</Text>
-            <Text style={styles.apellido}>{item.apellido}</Text>
-            <Text style={styles.cedula}>{item.cedula}</Text>
-            <Text style={styles.telefono}>${item.telefono}</Text>
-            <Text style={styles.edad}>${item.edad}</Text>
+        <View style={styles.fila}>
+            <Text style={styles.celda}>{item.Nombre}</Text>
+            <Text style={styles.celda}>{item.Apellido}</Text>
+            <Text style={styles.celda}>{item.Cedula}</Text>
+            <Text style={styles.celda}>{item.Telefono}</Text>
+            <Text style={styles.celda}>{item.Edad}</Text>
         </View>
     );
+
+
 
     return (
         <View style={styles.container}>
             <Text style={styles.titulo}>Lista de Clientes</Text>
+            <View style={styles.fila}>
+            </View>
+
             <FlatList
                 data={clientes}
                 keyExtractor={(item) => item.id}
-                renderItem={({ item }) => (
-                    <Text style={styles.item}>
-                        {item.nombre} - {item.apellido} - {item.cedula} - {item.telefono} - {item.edad}
-                    </Text>
-                )}
+                renderItem={renderItem}
                 contentContainerStyle={styles.list}
             />
+
+
         </View>
     );
 };
 
+
 const styles = StyleSheet.create({
+
     container: {
         flex: 1,
-        padding: 20,
+        padding: 8,
     },
     titulo: {
-        fontSize: 22,
+        fontSize: 15,
         fontWeight: 'bold',
-        marginBottom: 10,
+        marginBottom: 8,
         textAlign: 'center',
     },
     list: {
         paddingBottom: 10,
     },
     item: {
-        paddingVertical: 10,
-        borderBottomWidth: 1,
-        borderBottomColor: '#ccc',
+        paddingVertical: 1,
+        borderBottomWidth: 2,
+        borderBottomColor: '#0b27c7ff',
     },
     nombre: {
-        fontSize: 18,
+        fontSize: 10,
         fontWeight: 'bold',
     },
-    descripcion: {
-        fontSize: 16,
-        color: '#555',
+    apellido: {
+        fontSize: 10,
+        color: '#000000ff',
         marginVertical: 2,
     },
-    precio: {
-        fontSize: 16,
-        color: '#000',
+    cedula: {
+        fontSize: 10,
+        color: '#291212ff',
     },
+    telefono: {
+        fontSize: 10,
+        color: '#291212ff',
+    },
+    edad: {
+        fontSize: 10,
+        color: '#291212ff',
+    },
+    fila: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        paddingVertical: 4,
+        borderBottomWidth: 2,
+        borderBottomColor: '#2f6ae0ff',
+    },
+    celda: {
+        flex: 1,
+        textAlign: 'center',
+        fontSize: 8,
+    },
+
+
 });
 
 export default ListaClientes;

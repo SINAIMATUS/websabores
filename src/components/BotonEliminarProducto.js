@@ -65,14 +65,14 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   textoBoton: {
-    color: '#FF3737FF',
+    color: '#ffffffff',
     fontSize: 14,
   },
   overlay: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'rgba(0,0,0,0.5)',
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
   },
   modal: {
     backgroundColor: 'white',
@@ -104,7 +104,7 @@ const styles = StyleSheet.create({
   textoAccionEliminar: {
     color: 'white',
     fontWeight: 'bold',
-    backgroundColor: '#ff4040',
+    backgroundColor: '#ff40f9ff',
     padding: 5,
     borderRadius: 5,
   },

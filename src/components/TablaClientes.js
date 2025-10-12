@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Text, ScrollView, StyleSheet } from 'react-native';
-import BotonEliminarProducto from './BotonEliminarCliente.js';
+import BotonEliminarCliente from './BotonEliminarCliente';
+
 
 const TablaClientes = ({ clientes, eliminarCliente }) => {
   return (
@@ -17,13 +18,13 @@ const TablaClientes = ({ clientes, eliminarCliente }) => {
       <ScrollView>
         {clientes.map((item) => (
           <View key={item.id} style={styles.fila}>
-            <Text style={styles.celda}>{item.nombre}</Text>
-            <Text style={styles.celda}>{item.apellido}</Text>
-            <Text style={styles.celda}>{item.cedula}</Text>
-            <Text style={styles.celda}>{item.telefono}</Text>
-            <Text style={styles.celda}>{item.edad}</Text>
+            <Text style={styles.celda}>{item.Nombre}</Text>
+            <Text style={styles.celda}>{item.Apellido}</Text>
+            <Text style={styles.celda}>{item.Cedula}</Text>
+            <Text style={styles.celda}>{item.Telefono}</Text>
+            <Text style={styles.celda}>{item.Edad}</Text>
             <View style={styles.celdaAcciones}>
-              <BotonEliminarProducto id={item.id} eliminarCliente={eliminarCliente} />
+              <BotonEliminarCliente id={item.id} eliminarCliente={eliminarCliente} />
             </View>
           </View>
         ))}
@@ -35,18 +36,18 @@ const TablaClientes = ({ clientes, eliminarCliente }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 20,
+    padding: 1,
     alignSelf: 'stretch',
   },
   titulo: {
-    fontSize: 22,
+    fontSize: 15,
     fontWeight: 'bold',
-    marginBottom: 10,
+    marginBottom: 5,
     textAlign: 'center',
   },
   fila: {
     flexDirection: 'row',
-    borderBottomWidth: 1,
+    borderBottomWidth: 3,
     borderColor: '#ccc',
     paddingVertical: 6,
     alignItems: 'center',
@@ -56,7 +57,7 @@ const styles = StyleSheet.create({
   },
   celda: {
     flex: 1,
-    fontSize: 16,
+    fontSize: 8,
     textAlign: 'center',
   },
   celdaAcciones: {
@@ -68,7 +69,7 @@ const styles = StyleSheet.create({
   },
   textoEncabezado: {
     fontWeight: 'bold',
-    fontSize: 10,
+    fontSize: 7,
     textAlign: 'center',
   },
 });
