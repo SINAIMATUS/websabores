@@ -1,59 +1,57 @@
 import React, { useState } from 'react';
-import { TextInput, Button, View, StyleSheet } from 'react-native';
-import { db } from '../database/firebaseconfig';
-import { collection, addDoc } from 'firebase/firestore';
+import { TextInput, Button, View, StyleSheet, Text } from 'react-native';
 
-const FormularioProductos = ({ cargarDatos }) => {
-  const [nombre, setNombre] = useState('');
-  const [precio, setPrecio] = useState('');
-  const [descripcion, setDescripcion] = useState('');
-
-  const guardarProducto = async () => {
-    try {
-      await addDoc(collection(db, "Productos"), {
-        Nombre: nombre,
-        Precio: parseFloat(precio),
-        Descripcion: descripcion,
-      });
-      setNombre('');
-      setPrecio('');
-      setDescripcion('');
-      alert('Producto agregado con éxito');
-      cargarDatos();
-    } catch (error) {
-      console.error("Error al registrar el producto:", error);
-    }
-  };
-
+const FormularioProductos = ({
+  nuevoProducto,
+  manejoCambio,
+  guardarProducto,
+  actualizarProducto,
+  modoEdicion
+}) => {
   return (
     <View style={styles.container}>
+      <Text style={styles.titulo}>
+        {modoEdicion ? 'Actualizar Producto' : 'Registrar Producto'}
+      </Text>
+
       <TextInput
         style={styles.input}
-        placeholder="Nombre del producto"
-        value={nombre}
-        onChangeText={setNombre}
+        placeholder='Nombre del producto'
+        value={nuevoProducto.Nombre}
+        onChangeText={(texto) => manejoCambio('Nombre', texto)}
       />
       <TextInput
         style={styles.input}
-        placeholder="Precio"
-        value={precio}
-        onChangeText={setPrecio}
-        keyboardType="numeric"
+        placeholder='Precio'
+        value={String(nuevoProducto.Precio)}
+        onChangeText={(texto) => manejoCambio('Precio', texto)}
+        keyboardType='numeric'
       />
       <TextInput
         style={styles.input}
-        placeholder="Descripción"
-        value={descripcion}
-        onChangeText={setDescripcion}
+        placeholder='Descripcion'
+        value={nuevoProducto.Descripcion}
+        onChangeText={(texto) => manejoCambio('Descripcion', texto)}
       />
-      <Button title="Guardar" onPress={guardarProducto} />
+
+      <Button
+        title={modoEdicion ? 'Actualizar' : 'Guardar'}
+        onPress={modoEdicion ? actualizarProducto : guardarProducto}
+      />
     </View>
   );
 };
 
+// 🎨 Estilos separados al final
 const styles = StyleSheet.create({
   container: {
     padding: 20,
+  },
+  titulo: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    marginBottom: 10,
+    textAlign: 'center',
   },
   input: {
     borderWidth: 1,

@@ -43,8 +43,8 @@ const BotonEliminarProducto = ({ id, eliminarProducto }) => {
               <TouchableOpacity
                 style={styles.botonAccion}
                 onPress={() => {
-                  setConfirmarEliminar(true);
-                  eliminarProductoId();
+                  eliminarProducto(id);
+                  setVisible(false);
                 }}
               >
                 <Text style={styles.textoAccionEliminar}>Eliminar</Text>
