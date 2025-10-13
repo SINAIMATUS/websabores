@@ -11,9 +11,9 @@ const FormularioProductos = ({
   return (
     <View style={styles.container}>
       <Text style={styles.titulo}>
-        {modoEdicion ? 'Actualizar Producto' : 'Registrar Producto'}
+        {modoEdicion ? 'Actualizar Producto' : 'Registro de Producto'}
       </Text>
-
+  
       <TextInput
         style={styles.input}
         placeholder='Nombre del producto'
