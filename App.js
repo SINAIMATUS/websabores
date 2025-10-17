@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import { View } from "react-native";
 import { auth } from "./src/database/firebaseconfig";
-import Login from "./src/views/Productos";
+import Login from "./src/components/InicioDeSesion";
 import Productos from "./src/views/Productos";
 
 export default function App() {
