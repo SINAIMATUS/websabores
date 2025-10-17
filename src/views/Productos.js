@@ -5,8 +5,10 @@ import FormularioProductos from '../components/FormularioProductos.js';
 import ListaProductos from '../components/ListaProductos.js';
 import TablaProductos from '../components/TablaProductos.js';
 import { collection, getDocs, doc, deleteDoc, addDoc, updateDoc } from 'firebase/firestore';
+import { Button } from 'react-native';
 
-const Productos = () => {
+
+const Productos = ({ cerrarSesion }) => {
   // 🟡 Estados
   const [listaProductos, setListaProductos] = useState([]);
   const [nuevoProducto, setNuevoProducto] = useState({
@@ -108,6 +110,10 @@ const Productos = () => {
     }
   };
 
+
+
+
+
   // ⚪ Renderizado
   return (
     <View style={styles.container}>
@@ -124,6 +130,9 @@ const Productos = () => {
         editarProducto={editarProducto}
         eliminarProducto={eliminarProducto}
       />
+      <Button title="Cerrar Sesión" onPress={cerrarSesion} />
+
+    
     </View>
   );
 };
