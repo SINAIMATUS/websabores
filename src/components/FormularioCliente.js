@@ -55,13 +55,13 @@ const FormularioClientes = ({ cargarDatos }) => {
             <TextInput
                 style={styles.input}
                 placeholder="Teléfono"
-                value={telefono}    
+                value={telefono}
                 onChangeText={setTelefono}
                 keyboardType="numeric"
             />
             <TextInput
                 style={styles.input}
-                placeholder="Edad"  
+                placeholder="Edad"
                 value={edad}
                 onChangeText={setEdad}
                 keyboardType="numeric"

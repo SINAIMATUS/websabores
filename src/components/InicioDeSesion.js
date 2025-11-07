@@ -80,7 +80,7 @@ const styles = StyleSheet.create({
     },
     boton: {
         backgroundColor: "#2196F3",
-        padding: 12,
+        padding: 10,
         borderRadius: 8,
         alignItems: "center",
     },

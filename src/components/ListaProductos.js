@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Text, FlatList, StyleSheet } from 'react-native';
 
+
 const ListaProductos = ({ productos }) => {
     const renderItem = ({ item }) => (
         <View style={styles.fila}>
@@ -9,6 +10,15 @@ const ListaProductos = ({ productos }) => {
             <Text style={styles.celda}>${item.Precio}</Text>
         </View>
     );
+    const arrayBufferToBase64 = (buffer) => {
+        let binary = '';
+        const bytes = new Uint8Array(buffer);
+        const len = bytes.byteLength;
+        for (let i = 0; i < len; i++) {
+            binary += String.fromCharCode(bytes[i]);
+        }
+        return btoa(binary);
+    };
 
 
     return (

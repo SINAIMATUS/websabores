@@ -13,7 +13,7 @@ const FormularioProductos = ({
       <Text style={styles.titulo}>
         {modoEdicion ? 'Actualizar Producto' : 'Registro de Producto'}
       </Text>
-  
+
       <TextInput
         style={styles.input}
         placeholder='Nombre del producto'

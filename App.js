@@ -24,7 +24,7 @@ export default function App() {
 
   if (!Usuario) {
 
-    return <Login onLoginSucess={() => setUsuario(auth.currentUser)} />;
+    return <Login onLoginSuccess={() => setUsuario(auth.currentUser)} />;
 
   }
 
