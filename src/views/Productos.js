@@ -35,9 +35,9 @@ const Productos = ({ cerrarSesion }) => {
     try {
       if (nuevoProducto.Nombre && nuevoProducto.Precio && nuevoProducto.Descripcion) {
         await addDoc(collection(db, "Productos"), {
-          nombre: nuevoProducto.Nombre,
-          precio: parseFloat(nuevoProducto.Precio),
-          descripcion: nuevoProducto.Descripcion,
+          Nombre: nuevoProducto.Nombre,
+          Precio: parseFloat(nuevoProducto.Precio),
+          Descripcion: nuevoProducto.Descripcion,
         });
         cargarDatos(); // Recargar lista
         setNuevoProducto({ Nombre: "", Precio: "", Descripcion: "" });
@@ -72,9 +72,9 @@ const Productos = ({ cerrarSesion }) => {
     try {
       if (nuevoProducto.Nombre && nuevoProducto.Precio && nuevoProducto.Descripcion) {
         await updateDoc(doc(db, "Productos", productoId), {
-          nombre: nuevoProducto.Nombre,
-          precio: parseFloat(nuevoProducto.Precio),
-          descripcion: nuevoProducto.Descripcion,
+          Nombre: nuevoProducto.Nombre,
+          Precio: parseFloat(nuevoProducto.Precio),
+          Descripcion: nuevoProducto.Descripcion,
         });
         setNuevoProducto({ Nombre: "", Precio: "", Descripcion: "" });
         setModoEdicion(false); // Volver al modo registro
@@ -153,13 +153,17 @@ const Productos = ({ cerrarSesion }) => {
 
   const editarProducto = (producto) => {
     setNuevoProducto({
-      Nombre: producto.nombre,
-      Precio: producto.precio.toString(),
-      Descripcion: producto.descripcion,
+      Nombre: producto.Nombre,
+      Precio: producto.Precio.toString(),
+      Descripcion: producto.Descripcion,
     });
     setProductoId(producto.id);
     setModoEdicion(true);
   };
+
+  useEffect(() => {
+    cargarDatos();
+  }, []);
 
 
   //Lógica del excel

@@ -3,14 +3,6 @@ import { View, Text, TouchableOpacity, Modal, StyleSheet } from 'react-native';
 
 const BotonEliminarProducto = ({ id, eliminarProducto }) => {
   const [visible, setVisible] = useState(false);
-  const [confirmarEliminar, setConfirmarEliminar] = useState(false);
-
-  const eliminarProductoId = () => {
-    setVisible(false);
-    if (confirmarEliminar) {
-      eliminarProducto(id);
-    }
-  };
 
   return (
     <View>
@@ -33,18 +25,15 @@ const BotonEliminarProducto = ({ id, eliminarProducto }) => {
             <View style={styles.fila}>
               <TouchableOpacity
                 style={styles.botonAccion}
-                onPress={() => {
-                  setConfirmarEliminar(false);
-                  setVisible(false);
-                }}
+                onPress={() => setVisible(false)}
               >
                 <Text style={styles.textoAccionCancelar}>Cancelar</Text>
               </TouchableOpacity>
               <TouchableOpacity
                 style={styles.botonAccion}
                 onPress={() => {
-                  eliminarProductoId();
                   setVisible(false);
+                  eliminarProducto(id);
                 }}
               >
                 <Text style={styles.textoAccionEliminar}>Eliminar</Text>

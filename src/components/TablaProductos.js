@@ -17,10 +17,7 @@ const TablaProductos = ({ productos, editarProducto, eliminarProducto }) => {
           <View key={item.id} style={styles.fila}>
             <Text style={styles.celda}>{item.Nombre}</Text>
             <Text style={styles.celda}>{item.Descripcion}</Text>
-            <Text style={styles.celda}>{item.Precio}</Text>
-            <Text style={styles.celda}>{item.nombre}</Text>
-            <Text style={styles.celda}>{item.descripcion}</Text>
-            <Text style={styles.celda}>${item.precio}</Text>
+            <Text style={styles.celda}>${item.Precio}</Text>
             <View style={styles.celdaAcciones}>
               <TouchableOpacity
                 style={styles.botonActualizar}
