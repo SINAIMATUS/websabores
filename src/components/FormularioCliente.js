@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import { TextInput, Button, View, StyleSheet } from 'react-native';
+import { TextInput, View, StyleSheet } from 'react-native';
 import { db } from '../database/firebaseconfig';
 import { collection, addDoc } from 'firebase/firestore';
-
+import BotonPequeño from './BotonPequeño';
+ 
 const FormularioClientes = ({ cargarDatos }) => {
     const [nombre, setNombre] = useState('');
     const [apellido, setApellido] = useState('');
@@ -66,7 +67,7 @@ const FormularioClientes = ({ cargarDatos }) => {
                 onChangeText={setEdad}
                 keyboardType="numeric"
             />
-            <Button title="Guardar" onPress={guardarCliente} />
+            <BotonPequeño titulo="Guardar" onPress={guardarCliente} />
         </View>
     );
 };
