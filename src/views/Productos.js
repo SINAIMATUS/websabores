@@ -13,7 +13,7 @@ const Productos = ({ cerrarSesion }) => {
 
   const [modoEdicion, setModoEdicion] = useState(false);
   const [productoId, setProductoId] = useState(null);
-  const colecciones = ["Productos", "Clientes", "Ciudades"];
+  const colecciones = ["Productos", "Clientes", "Ciudades", "Mascotas"];
 
   const [productos, setProductos] = useState([]);
 

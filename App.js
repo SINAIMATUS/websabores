@@ -3,6 +3,7 @@ import { onAuthStateChanged, signOut } from "firebase/auth";
 import { auth } from "./src/database/firebaseconfig";
 import Login from "./src/components/InicioDeSesion";
 import Productos from "./src/views/Productos";
+import Clientes from "./src/views/Clientes";
 import ProductosRealtime from "./src/views/ProductosRealtime";
 import FormularioIMC from "./src/components/FormularioIMC";
 import { NavigationContainer } from "@react-navigation/native";
@@ -38,6 +39,7 @@ export default function App() {
   return (
     <NavigationContainer>
       <Tab.Navigator>
+        <Tab.Screen name="Clientes" component={Clientes} />
         <Tab.Screen name="Productos">
           {() => <Productos cerrarSesion={cerrarSesion} />}
         </Tab.Screen>

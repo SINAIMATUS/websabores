@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { TextInput, View, StyleSheet } from 'react-native';
+import { TextInput, View, StyleSheet, Alert } from 'react-native';
 import { db } from '../database/firebaseconfig';
 import { collection, addDoc } from 'firebase/firestore';
 import BotonPequeño from './BotonPequeño';
@@ -13,23 +13,29 @@ const FormularioClientes = ({ cargarDatos }) => {
 
 
     const guardarCliente = async () => {
+        if (!nombre || !apellido || !cedula) {
+            Alert.alert("Campos incompletos", "Por favor, completa Nombre, Apellido y Cédula.");
+            return;
+        }
+
         try {
             await addDoc(collection(db, "Clientes"), {
                 Nombre: nombre,
                 Apellido: apellido,
                 Cedula: cedula,
-                Telefono: telefono,
-                Edad: edad
+                Telefono: telefono.replace(/[^0-9]/g, ''), // Guarda solo números
+                Edad: edad ? parseInt(edad.replace(/[^0-9]/g, '')) : 0 // Guarda como número o 0 si está vacío
             });
             setNombre('');
             setApellido('');
             setCedula('');
             setTelefono('');
             setEdad('');
-            alert('Cliente agregado con éxito');
+            Alert.alert('Éxito', 'Cliente agregado correctamente');
             cargarDatos();
         } catch (error) {
             console.error("Error al registrar el Cliente:", error);
+            Alert.alert('Error', 'No se pudo registrar el cliente.');
         }
     };
 
